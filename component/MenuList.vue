@@ -1,0 +1,147 @@
+<template>
+    <section>
+          <div class="w-[1100px] mx-auto px-0">
+          <div class="border-b-2 border-gray-300 mb-15">
+          <div class="flex space-x-4">
+      
+          <button
+            v-for="(tab, index) in tabs"
+            :key="index"
+            class="py-2 px-2 ml-[350px] text-sm font-mono font-bold text-gray-600 hover:text-black focus:outline-none"
+            :class="[
+              'transition-colors duration-300 ease-in-out',
+              currentTab === index ? 'border-b-2 border-yellow-400' : 'text-gray-500'
+            ]"
+            @click="selectTab(index)"
+          >
+            {{ tab.title }}
+          </button>
+        </div>
+      </div>
+      <br>
+      <div class="bg-gray-50 rounded-lg shadow-md flex justify-between p-4 py-8" style="background-image: url('https://themewagon.gitlab.io/restaurant/assets/img/food/egg.png'),url('https://themewagon.gitlab.io/restaurant/assets/img/food/bread.png'); background-repeat: no-repeat,no-repeat; background-position: top right,bottom left; background-size: 250px 250px,400px 100px;">
+  
+        <div v-for="(tab, index) in tabs" :key="index" v-show="currentTab === index">
+          <div class="text-sm flex justify-between items-center ml-[30px] mr-[30px] mt-[20px] space-y-2 p-4" onclick="showPopup()">
+            <!-- <span>
+           <img class="position-absolute r-0 t-0 ml-[300px]" src="https://themewagon.gitlab.io/restaurant/assets/img/food/egg.png" alt="omlet" height="300" width="200"> 
+             </span> -->
+             
+      
+            <div class="p-4 bg-transparent border-r-2 border-gray-300 w-[320px] h-150">
+              <a class="text-decoration-none " href="#">
+                <div class="flex justify-between">
+  
+                  <h2 class="font-bold text-black text-xl font-mono">BREAKFAST BOWL</h2>
+                  <p class="font-bold text-red-600 text-opacity-70">$8.50</p>
+                </div>
+                <p class="font-mono text-sm text-gray-500">"Black Bean Cake, Greens, Tomato & Avocado Pico drizzled with Lime Cream (Add egg $1)"</p>
+              </a>
+              <br><br><br>
+              <a class="text-decoration-none " href="#">
+                <div class="flex justify-between">
+                  <h2 class="font-bold text-black text-xl font-mono">EGG SANDWICH</h2>
+                  <p class="font-bold text-red-600 text-opacity-70">$7.50</p>
+                </div>
+                <p class="font-mono text-sm text-gray-500">Everything Bagel with Cream Cheese, Bacon, Tomato, Red Onion, Basil Pesto, Arugula</p>
+              </a>
+              <br><br><br>
+              <a class="text-decoration-none " href="#">
+                <div class="flex justify-between">
+                  <h2 class="font-bold text-black text-xl font-mono">BREAKFAST BURRITO</h2>
+                  <p class="font-bold text-red-600 text-opacity-70">$9.50</p>
+                </div>
+                <p class="font-mono text-sm text-gray-500">Three Scrambled Eggs, Cheddar, our Housemade Black Bean Cake, Avocado, Pico, & Lime Cream</p>
+              </a>
+              <br><br><br><br><br><br>
+            </div>
+            <div class="p-4 bg-transparent border-r-2 border-gray-300 w-[320px] h-150 ml-4">
+              <a class="text-decoration-none " href="#">
+                <div class="flex justify-between">
+                  <h2 class="font-bold text-black text-xl font-mono">VEGGIE JAMMIE</h2>
+                  <p class="font-bold text-red-600 text-opacity-70">$5.50</p>
+                </div>
+                <p class="font-mono text-sm text-gray-500">Everything Bagel with our Homemade Tofu Herb Spread, Cucumber Tomato, Red Onion, & Arugula</p>
+              </a>
+              <br><br><br>
+              <a class="text-decoration-none " href="#">
+                <div class="flex justify-between">
+                  <h2 class="font-bold text-black text-xl font-mono">SMOKED SALMON BAGEL</h2>
+                  <p class="font-bold text-red-600 text-opacity-70">$9.50</p>
+                </div>
+                <p class="font-mono text-sm text-gray-500">Crushed Avocado topped with MV Sea Salt on Toasted Multigrain</p>
+              </a>
+              <br><br><br>
+              <a class="text-decoration-none " href="#">
+                <div class="flex justify-between">
+                  <h2 class="font-bold text-black text-xl font-mono">BREAKFAST PASTRIES</h2>
+                  <p class="font-bold text-red-600 text-opacity-70">$9.00</p>
+                </div>
+                <p class="font-mono text-sm text-gray-500">Three Scrambled Eggs, Cheddar, our Housemade Black Bean Cake, Avocado, Pico, & Lime Cream</p>
+              </a>
+              <br><br><br>
+              <a class="text-decoration-none " href="#">
+                <div class="flex justify-between">
+                  <h2 class="font-bold text-black text-xl font-mono">FRIED EGG</h2>
+                  <p class="font-bold text-red-600 text-opacity-70">$8.00</p>
+                </div>
+                <p class="font-mono text-sm text-gray-500">Three Fried Eggs, house hot sauce, local cheddar mac, lettuce, pickle & onion on a sesame roll</p>
+              </a>
+            </div>
+            <div class="p-4 bg-transparent w-[320px] h-150">
+              <a class="text-decoration-none " href="#">
+                <div class="flex justify-between">
+                  <h2 class="font-bold text-black text-xl font-mono">BREAKFAST JAMMIE</h2>
+                  <p class="font-bold text-red-600 text-opacity-70">$6.50</p>
+                </div>
+                <p class="font-mono text-sm text-gray-500">Everything Bagel with Cream Cheese, Bacon, Tomato, Red Onion, Basil Pesto, Arugula</p>
+              </a>
+              <br><br><br>
+              <a class="text-decoration-none " href="#">
+                <div class="flex justify-between">
+                  <h2 class="font-bold text-black text-xl font-mono">BAGEL WITH CREAM CHEESE</h2>
+                  <p class="font-bold text-red-600 text-opacity-70">$6.00</p>
+                </div>
+                <p class="font-mono text-sm text-gray-500">Crushed Avocado topped with MV Sea Salt on Toasted Multigrain</p>
+              </a>
+              <br><br><br>
+              <a class="text-decoration-none " href="#">
+                <div class="flex justify-between">
+                  <h2 class="font-bold text-black text-xl font-mono">AVOCADO TOAST</h2>
+                  <p class="font-bold text-red-600 text-opacity-70">$7.50</p>
+                </div>
+                <p class="font-mono text-sm text-gray-500">Crushed Avocado topped with MV Sea Salt on Toasted Multigrain</p>
+              </a>
+              <br><br><br>
+              <a class="text-decoration-none " href="#">
+                <div class="flex justify-between">
+                  <h2 class="font-bold text-black text-xl font-mono">AVOCADO TOAST</h2>
+                  <p class="font-bold text-red-600 text-opacity-70">$6.50</p>
+                </div>
+                <p class="font-mono text-sm text-gray-500">Crushed Avocado topped with MV Sea Salt on Toasted Multigrain</p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    </section>
+</template>
+<script setup>
+    import { ref } from 'vue';
+    const currentTab=ref(0)
+    const tabs=ref([
+          { title: 'Breakfast' },
+          { title: 'Lunch'},
+          { title: 'Dinner' },
+          { title: 'Desserts' },
+          {title : 'Drinks'}
+    ])
+    
+    function  selectTab(index){
+      this.currentTab=index
+      
+    }
+</script>
+
