@@ -1,13 +1,31 @@
+<script setup>
+    import { ref } from 'vue';
+    const currentTab=ref(0)
+    const tabs=ref([
+          { title: 'Breakfast' },
+          { title: 'Lunch'},
+          { title: 'Dinner' },
+          { title: 'Desserts' },
+          {title : 'Drinks'}
+    ])
+    
+    function  selectTab(index){
+      this.currentTab=index
+      
+    }
+</script>
+
+
 <template>
     <section>
-          <div class="w-[1100px] mx-auto px-0">
+          <div class="mx-auto px-0">
           <div class="border-b-2 border-gray-300 mb-15">
-          <div class="flex space-x-4">
-      
+          <div id="tab" class="flex space-x-2 justify-center">
+          
           <button
             v-for="(tab, index) in tabs"
             :key="index"
-            class="py-2 px-2 ml-[350px] text-sm font-mono font-bold text-gray-600 hover:text-black focus:outline-none"
+            class="py-2 px-2 text-sm font-mono font-bold text-gray-600 hover:text-black focus:outline-none"
             :class="[
               'transition-colors duration-300 ease-in-out',
               currentTab === index ? 'border-b-2 border-yellow-400' : 'text-gray-500'
@@ -19,18 +37,18 @@
         </div>
       </div>
       <br>
-      <div class="bg-gray-50 rounded-lg shadow-md flex justify-between p-4 py-8" style="background-image: url('https://themewagon.gitlab.io/restaurant/assets/img/food/egg.png'),url('https://themewagon.gitlab.io/restaurant/assets/img/food/bread.png'); background-repeat: no-repeat,no-repeat; background-position: top right,bottom left; background-size: 250px 250px,400px 100px;">
+      <div class="bg-gray-50 rounded-lg shadow-md flex justify-between p-4 py-8 px-10 mx-10" style="background-image: url('https://themewagon.gitlab.io/restaurant/assets/img/food/egg.png'),url('https://themewagon.gitlab.io/restaurant/assets/img/food/bread.png'); background-repeat: no-repeat,no-repeat; background-position: top right,bottom left; background-size: 250px 250px,400px 100px;">
   
         <div v-for="(tab, index) in tabs" :key="index" v-show="currentTab === index">
-          <div class="text-sm flex justify-between items-center ml-[30px] mr-[30px] mt-[20px] space-y-2 p-4" onclick="showPopup()">
+          <div class="text-sm flex justify-between items-center ml-[30px] mt-[20px] space-y-2 flex-col lg:flex-row" onclick="showPopup()">
             <!-- <span>
            <img class="position-absolute r-0 t-0 ml-[300px]" src="https://themewagon.gitlab.io/restaurant/assets/img/food/egg.png" alt="omlet" height="300" width="200"> 
              </span> -->
              
       
-            <div class="p-4 bg-transparent border-r-2 border-gray-300 w-[320px] h-150">
+            <div class="p-4 bg-transparent border-r-2 border-gray-300 h-150">
               <a class="text-decoration-none " href="#">
-                <div class="flex justify-between">
+                <div class="flex justify-between flex-wrap">
   
                   <h2 class="font-bold text-black text-xl font-mono">BREAKFAST BOWL</h2>
                   <p class="font-bold text-red-600 text-opacity-70">$8.50</p>
@@ -55,7 +73,7 @@
               </a>
               <br><br><br><br><br><br>
             </div>
-            <div class="p-4 bg-transparent border-r-2 border-gray-300 w-[320px] h-150 ml-4">
+            <div class="p-4 bg-transparent border-r-2 border-gray-300 h-150 ml-4">
               <a class="text-decoration-none " href="#">
                 <div class="flex justify-between">
                   <h2 class="font-bold text-black text-xl font-mono">VEGGIE JAMMIE</h2>
@@ -88,7 +106,7 @@
                 <p class="font-mono text-sm text-gray-500">Three Fried Eggs, house hot sauce, local cheddar mac, lettuce, pickle & onion on a sesame roll</p>
               </a>
             </div>
-            <div class="p-4 bg-transparent w-[320px] h-150">
+            <div class="p-4 bg-transparent h-150">
               <a class="text-decoration-none " href="#">
                 <div class="flex justify-between">
                   <h2 class="font-bold text-black text-xl font-mono">BREAKFAST JAMMIE</h2>
@@ -128,20 +146,19 @@
     </div>
     </section>
 </template>
-<script setup>
-    import { ref } from 'vue';
-    const currentTab=ref(0)
-    const tabs=ref([
-          { title: 'Breakfast' },
-          { title: 'Lunch'},
-          { title: 'Dinner' },
-          { title: 'Desserts' },
-          {title : 'Drinks'}
-    ])
-    
-    function  selectTab(index){
-      this.currentTab=index
-      
-    }
-</script>
+<style scoped>
+ @media (max-width: 450px) {
+  #tab {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0px;
+  }
 
+  #tab button {
+    font-size: 0.5rem; /* Decrease font size */
+    padding: 0.5rem 0rem; /* Decrease padding */
+  }
+}
+
+</style>

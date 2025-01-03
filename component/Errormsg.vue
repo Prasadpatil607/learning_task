@@ -1,5 +1,5 @@
 <template>
-    <section class="h-[420px] w-full bg-gray-300">
+    <section class="error h-[420px] w-full bg-gray-300 ">
         <center>
           <div class="pt-[140px]">
             <img src="https://maps.gstatic.com/mapfiles/api-3/images/icon_error.png" alt="">
@@ -11,4 +11,12 @@
         </center>
       </section>
 </template>
+
+<style scoped>
+  @media (max-width: 768px) {
+    .error {
+      margin-top: 380px;
+    }
+  }
+</style>
 

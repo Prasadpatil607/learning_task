@@ -19,26 +19,28 @@
   <br><br><br>
   <Feedback/>
   <Footer/> -->
-  <Navbar></Navbar>
-  <Headersec></Headersec>
-  <Menu></Menu>
-  <br><br><br><br><br>
-  <menu-list></menu-list>
-  <br><br><br><br><br><br><br>
-  <Hungry></Hungry>
-  <br><br>
-  <Catering></Catering>
-  <br><br><br>
-  <Gallery></Gallery>
-  <br><br><br>
-  <About></About>
-  <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-  <Content></Content>
-  <Errormsg></Errormsg>
-  <Contact></Contact>
-  <br><br><br>
-  <Feedback></Feedback>
-  <Footer></Footer>
+  <div class="flex flex-col gap-8">
+    <Navbar></Navbar>
+    <Headersec></Headersec>
+    <Menu></Menu>
+    <!-- <br><br><br><br><br> -->
+    <menu-list></menu-list>
+    <!-- <br><br><br><br><br><br><br> -->
+    <Hungry></Hungry>
+    <!-- <br><br> -->
+    <Catering></Catering>
+    <!-- <br><br><br> -->
+    <Gallery></Gallery>
+    <!-- <br><br><br> -->
+    <About></About>
+    <!-- <br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
+    <Content></Content>
+    <Errormsg></Errormsg>
+    <Contact></Contact>
+    <!-- <br><br><br> -->
+    <Feedback></Feedback>
+    <Footer></Footer>
+  </div>
   
 </template>
   
