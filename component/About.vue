@@ -1,12 +1,34 @@
+<script setup>
+import { onMounted } from "vue";
+
+onMounted(() => {
+  const animatedElements = document.querySelectorAll(".animate-on-scroll");
+
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate");
+          observer.unobserve(entry.target); // Unobserve to trigger only once
+        }
+      });
+    },
+    { threshold: 0.25 } // Trigger when 25% of the element is visible
+  );
+
+  animatedElements.forEach((el) => observer.observe(el));
+});
+</script>
+
 <template>
-  <section class="ml-[80px] relative">
+  <section class=" ml-[80px] relative animate-on-scroll">
     <!-- Section Heading -->
-    <div class="text-center sm:text-left">
-      <p class="font-mono text-2xl pt-7 text-opacity-70">About Us</p>
+    <div class="block1 text-center sm:text-left">
+      <p class="slide-in-bottom font-mono text-2xl pt-7 text-opacity-70">About Us</p>
     </div>
-    <div class="text-center sm:text-left">
-      <h2 class="font-serif font-bold text-3xl">Who Are We?</h2>
-      <p class="pt-5 text-gray-500 text-sm font-mono font-medium leading-relaxed text-base">
+    <div class="block1 text-center sm:text-left">
+      <h2 class="slide-in-bottom font-serif font-bold text-3xl">Who Are We?</h2>
+      <p class="slide-in-bottom2 pt-5 text-gray-500 text-sm font-mono font-medium leading-relaxed text-base">
         We are a chain of theme restaurant founded in 1971 in London. In <br>1979, the cafe began covering its walls with rock and roll <br>memorabilia, a tradition which expanded to others in the chain.
       </p>
     </div>
@@ -15,8 +37,8 @@
       LEARN MORE
     </button>
 
-    <div class="w-full mt-8">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-2 py-4 lg:w-[700px]">
+    <div class="block1 w-full mt-8">
+      <div class="slide-in-right grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-2 py-4 lg:w-[700px]" >
         <!-- Image Cards -->
         <div class="image_card overflow-hidden flex flex-col items-center">
           <img src="https://themewagon.gitlab.io/restaurant/assets/img/team/1.png" alt="" class="rounded-full max-w-[70%] h-auto">
@@ -52,11 +74,24 @@
     </div>
     
     <!-- Background Section -->
-    <div class="bg-holder"></div>
+    <div class=" bg-holder"></div>
   </section>
 </template>
 
 <style scoped>
+
+/* Initial state for animation */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Animated state */
+.animate-on-scroll.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
 .bg-holder {
   background-image: url(https://themewagon.gitlab.io/restaurant/assets/img/food/soup.png);
   background-position: right center;
@@ -75,10 +110,79 @@
   z-index: -1;
 }
 
+.slide-in-bottom {
+  transform: translateY(50px);
+  opacity: 0;
+  animation: slideInBottom 1s forwards;
+}
+
+@keyframes slideInBottom {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.slide-in-bottom2 {
+  transform: translateY(50px);
+  opacity: 0;
+  animation: slideInBottom 3s forwards;
+}
+
+@keyframes slideInBottom {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 .image_card {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.slide-in-right {
+  transform: translateX(50px);
+  opacity: 0;
+  animation: slideInRight 1s forwards;
+}
+
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-in-left {
+  transform: translateX(50px);
+  opacity: 0;
+  animation: slideInLeft 2s forwards;
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 /* Mobile responsiveness */
@@ -105,6 +209,9 @@
 
   .font-mono {
     font-size: 1.1rem;
+  }
+  .bg-holder {
+    display: none;
   }
 }
 

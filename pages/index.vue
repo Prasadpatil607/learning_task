@@ -19,25 +19,25 @@
   <br><br><br>
   <Feedback/>
   <Footer/> -->
-  <div class="flex flex-col gap-8">
+  <div>
     <Navbar></Navbar>
     <Headersec></Headersec>
     <Menu></Menu>
-    <!-- <br><br><br><br><br> -->
+    <br><br><br><br><br>
     <menu-list></menu-list>
-    <!-- <br><br><br><br><br><br><br> -->
+    <br><br><br><br><br><br><br>
     <Hungry></Hungry>
-    <!-- <br><br> -->
+    <br><br>
     <Catering></Catering>
-    <!-- <br><br><br> -->
+    <br><br><br>
     <Gallery></Gallery>
-    <!-- <br><br><br> -->
+    <br><br><br>
     <About></About>
-    <!-- <br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <Content></Content>
     <Errormsg></Errormsg>
     <Contact></Contact>
-    <!-- <br><br><br> -->
+    <br><br><br>
     <Feedback></Feedback>
     <Footer></Footer>
   </div>

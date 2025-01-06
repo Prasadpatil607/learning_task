@@ -42,12 +42,34 @@
         </div>
       </section>
 </template> -->
+
+<script setup>
+  import { onMounted } from "vue";
+
+onMounted(() => {
+  const animatedElements = document.querySelectorAll(".animate-on-scroll");
+
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate");
+          observer.unobserve(entry.target); // Unobserve to trigger only once
+        }
+      });
+    },
+    { threshold: 0.5 } // Trigger when 25% of the element is visible
+  );
+
+  animatedElements.forEach((el) => observer.observe(el));
+});
+</script>
 <template>
   <section class="w-full bg-black flex flex-col md:flex-row px-4 md:px-[140px]">
     <!-- Left Column for Image (Hidden on small screens) -->
-    <div class="h-[320px] w-[180px] hidden md:block">
+    <div class="h-[320px] w-[180px] hidden md:block animate-on-scroll">
       <img src="https://themewagon.gitlab.io/restaurant/assets/img/food/pngfood2.png" 
-           alt="Noodles" class="h-[260px] ml-[20px] mt-[60px]">
+           alt="Noodles" class="slide-in-bottom h-[260px] ml-[20px] mt-[60px]">
     </div>
 
     <!-- Middle Column with Logo and Button -->
@@ -100,6 +122,36 @@
 </template>
 
 <style scoped>
+/* Initial state for animation */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Animated state */
+.animate-on-scroll.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide-in-bottom {
+  transform: translateY(50px);
+  opacity: 0;
+  animation: slideInBottom 1s forwards;
+}
+
+@keyframes slideInBottom {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
   @media (max-width: 768px) {
     #left-column {
       display: flex;

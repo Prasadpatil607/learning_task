@@ -1,5 +1,27 @@
+<script setup>
+  import { onMounted } from "vue";
+
+onMounted(() => {
+  const animatedElements = document.querySelectorAll(".animate-on-scroll");
+
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate");
+          observer.unobserve(entry.target); // Unobserve to trigger only once
+        }
+      });
+    },
+    { threshold: 0.7 } // Trigger when 25% of the element is visible
+  );
+
+  animatedElements.forEach((el) => observer.observe(el));
+});
+</script>
+
 <template>
-  <section class="h-auto w-full flex flex-col md:flex-row items-center md:items-start">
+  <section class=" h-auto w-full flex flex-col md:flex-row items-center md:items-start">
     <!-- Text Content Section -->
     <div class="h-auto md:h-[300px] w-full md:w-[600px] md:ml-[320px] justify-center space-y-2 text-center">
       <center>
@@ -18,6 +40,7 @@
           ></path>
         </svg>
       </center>
+    
       <center>
         <div id="star" class="h-auto w-full flex justify-center text-red-400 space-x sm:h-2 md:h-2 lg:h-4">
           <svg
@@ -107,17 +130,46 @@
     </div>
 
     <!-- Image Section -->
-    <div class="hidden md:flex h-[300px] w-[320px] md:ml-[80px]">
+    <div class="block1 hidden md:flex h-[300px] w-[320px] md:ml-[80px] animate-on-scroll">
       <img
         src="https://themewagon.gitlab.io/restaurant/assets/img/food/pizza2.png"
         alt=""
-        class="h-70 w-[300px]"
+        class="slide-in-left h-70 w-[300px]"
       />
     </div>
   </section>
 </template>
 
 <style scoped>
+/* Initial state for animation */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Animated state */
+.animate-on-scroll.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.slide-in-left {
+  transform: translateY(50px);
+  opacity: 0;
+  animation: slideInLeft 1s forwards;
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
   @media (max-width: 768px) {
     .feedback {
       margin-top: 380px;
@@ -125,5 +177,25 @@
     #star{
       height: 20px;
     }
+    img{
+      display: none;
+    }
   }
+
+  @keyframes appear {
+        from {
+          opacity: 0;
+          clip-path: inset(100% 100% 0 0);
+        }
+        to {
+          opacity: 1;
+          clip-path: inset(0 0 0 0);
+        }
+      }
+
+      .block1 {
+        animation: slideInLeft 1s forwards;
+        animation-timeline: view();
+        animation-range: entry 0% cover 80%;
+      }
 </style>
