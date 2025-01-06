@@ -1,11 +1,33 @@
+<script setup>
+  import { onMounted } from "vue";
+
+onMounted(() => {
+  const animatedElements = document.querySelectorAll(".animate-on-scroll");
+
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate");
+          observer.unobserve(entry.target); // Unobserve to trigger only once
+        }
+      });
+    },
+    { threshold: 0.7 } // Trigger when 25% of the element is visible
+  );
+
+  animatedElements.forEach((el) => observer.observe(el));
+});
+</script>
+
 <template>
-  <section class="h-auto w-full bg-gray-100">
-    <div class="w-full px-4 py-6 md:px-6 md:py-8 bg-white shadow-lg rounded-md">
+  <section class="block1 h-auto w-full bg-gray-100">
+    <div class="w-full px-4 py-6 md:px-6 md:py-8 bg-white shadow-lg rounded-md animate-on-scroll">
       <!-- Heading Section -->
-      <h1 class="text-2xl md:text-3xl font-medium font-serif text-center mb-4 mt-12 md:mt-[80px]">
+      <h1 class="slide-in-bottom text-2xl md:text-3xl font-medium font-serif text-center mb-4 mt-12 md:mt-[80px]">
         Feel free to drop us a line!
       </h1>
-      <p class="text-sm md:text-base text-center font-mono text-gray-600 mb-6">
+      <p class="slide-in-bottom text-sm md:text-base text-center font-mono text-gray-600 mb-6">
         Let's talk if you have any query or suggestion. We are open to learn from you. <br>
         So don't hesitate to reach us anytime.
       </p>
@@ -70,3 +92,67 @@
     </div>
   </section>
 </template>
+<style scoped>
+/* Initial state for animation */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Animated state */
+.animate-on-scroll.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+  .slide-in-bottom {
+  transform: translateY(50px);
+  opacity: 0;
+  animation: slideInBottom 1s forwards;
+}
+
+@keyframes slideInBottom {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes zoomIn {
+      0% {
+        transform: scale(0.5); /* Start smaller */
+        opacity: 0;           /* Fully transparent */
+      }
+      100% {
+        transform: scale(1);  /* Normal size */
+        opacity: 1;           /* Fully visible */
+      }
+    }
+    .zoom-in {
+      display: inline-block;     
+      animation: zoomIn 0.8s ease-out; 
+      animation-delay: 1.5s;             
+      animation-fill-mode: both;   
+    }
+
+    @keyframes appear {
+        from {
+          opacity: 0;
+          clip-path: inset(100% 100% 0 0);
+        }
+        to {
+          opacity: 1;
+          clip-path: inset(0 0 0 0);
+        }
+      }
+
+      .block1 {
+        animation: slideInBottom 1s forwards;
+        animation-timeline: view();
+        animation-range: entry 0% cover 60%;
+      }
+</style>

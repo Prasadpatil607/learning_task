@@ -1,10 +1,10 @@
 <template>
-  <section>
+  <section class="block1">
     <!-- Heading Section -->
     <div class="text-center">
-      <p class="head font-mono text-2xl pt-7 text-opacity-70">Catering</p>
-      <h2 class="font-serif font-bold text-4xl mt-2">We Manage Your Events</h2>
-      <p class="headp pl-5 pt-5 text-gray-500 text-sm font-mono font-medium leading-relaxed mt-5 text-base">
+      <p class="slide-in-bottom head font-mono text-2xl pt-7 text-opacity-70">Catering</p>
+      <h2 class="slide-in-bottom font-serif font-bold text-4xl mt-2">We Manage Your Events</h2>
+      <p class="zoom-in headp pl-5 pt-5 text-gray-500 text-sm font-mono font-medium leading-relaxed mt-5 text-base">
         Allow our Chef to deliver the perfect private dinner or cocktail party experience in your <br>home; or let us simply add a little extra flavor to your next office meeting, boat trip, or <br>beach picnic. By partnering with our sibling location Rosewater Wine & Spirits, we can <br>offer a full array of bar services and beverage selections. Email us to learn more.
       </p>
     </div>
@@ -30,6 +30,60 @@
   </section>
 </template>
 <style scoped>
+
+@keyframes zoomIn {
+      0% {
+        transform: scale(0.5); /* Start smaller */
+        opacity: 0;           /* Fully transparent */
+      }
+      100% {
+        transform: scale(1);  /* Normal size */
+        opacity: 1;           /* Fully visible */
+      }
+    }
+
+    /* Apply the animation to the element */
+    .zoom-in {
+      display: inline-block;     /* For better handling of inline elements */
+      animation: zoomIn 0.8s ease-out; /* Animation duration and timing */
+      animation-delay: 1.5s;              /* Delay before animation starts */
+      animation-fill-mode: both;   
+    }
+
+    .slide-in-bottom {
+  transform: translateY(50px);
+  opacity: 0;
+  animation: slideInBottom 1s forwards;
+}
+
+@keyframes slideInBottom {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes appear {
+        from {
+          opacity: 0;
+          clip-path: inset(100% 100% 0 0);
+        }
+        to {
+          opacity: 1;
+          clip-path: inset(0 0 0 0);
+        }
+      }
+
+      .block1 {
+        animation: slideInBottom 1s forwards;
+        animation: zoomIn 0.8s ease-out;
+        animation-timeline: view();
+        animation-range: entry 0% cover 40%;
+      }
   @media screen and (max-width: 330px) {
     h2{
       font-size: 1.3rem;
