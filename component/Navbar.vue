@@ -77,8 +77,34 @@
             </div>
           </div>
         </li>
-        <li class="text-gray-400 transition-colors cursor-pointer hover:text-white">
+        <li class="relative group text-gray-400 transition-colors cursor-pointer hover:text-white">
           Pages
+          <div
+            class="absolute left-0 hidden pt-2 group-hover:block"
+          >
+            <div class="w-48 bg-black shadow-lg py-2">
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-400 hover:text-white font-mono text-sm"
+                >Menu</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-400 hover:text-white font-mono text-sm"
+                >Gallery</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-400 hover:text-white font-mono text-sm"
+                >About</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-400 hover:text-white font-mono text-sm"
+                >Contact</a
+              >
+            </div>
+          </div>
         </li>
         <li class="text-gray-400 transition-colors cursor-pointer hover:text-white">
           Menu

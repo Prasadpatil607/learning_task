@@ -18,6 +18,47 @@ onMounted(() => {
 
   animatedElements.forEach((el) => observer.observe(el));
 });
+
+const slides = ref([
+{
+          feed: "Restaurant Pro probably make one of the best pizza in Town. I would definitely post their pizza picture someday. But today I have tasted their another items. So there I have mentioned that",
+          title: "-lily rose",
+         
+        },
+        
+        {
+          feed:"hicoiojecmi iwjc oiweqjcj oefjcoijeoijcoidc joce jcoi jrejco jcoiqewjocij qpcoiqj ",
+          title: "-Noha Kingon",
+          
+        },
+        {
+            feed:"am thrilled with the possibilities that Slick brought to my web design agency. Creating is easier with Slick.",
+            title:"-Noha Kingon"
+        },
+        {
+          feed:"Restaurant & Cafe, we aim at promoting the foodstuff industry through the branches , we establish and through the new dishes. and integrate between different cultures, by merging different Oriental and its western recipes",
+          title:"-Richard Henriks"
+        }
+])
+
+const currentIndex = ref(0);
+  
+      const nextSlide = () => {
+        currentIndex.value =
+          (currentIndex.value + 1) % slides.value.length; // Loop to the first slide
+      };
+  
+      const prevSlide = () => {
+        currentIndex.value =
+          (currentIndex.value - 1 + slides.value.length) % slides.value.length; // Loop to the last slide
+      };
+  
+      const goToSlide = (index) => {
+        currentIndex.value = index;
+      };
+  
+      // return { slides, currentIndex, nextSlide, prevSlide, goToSlide };
+  
 </script>
 
 <template>
@@ -116,17 +157,55 @@ onMounted(() => {
         </div>
       </center>
       <center>
-        <p class="font-mono text-gray-500 mt-2">
+        <!-- <p class="font-mono text-gray-500 mt-2">
           "Restaurant & Cafe, we aim at promoting the foodstuff <br />
           industry through the branches , we establish and <br />
           through the new dishes. and integrate between different <br />
           cultures, by merging different Oriental and its western <br />
           recipes"
-        </p>
+        </p> -->
+
+
+
+        <div class="slider-container">
+      <!-- Slider Wrapper -->
+      <div
+        class="slider-wrapper"
+        :style="{ transform: `translateX(-${currentIndex * 100}%)` }"
+      >
+        <div
+          v-for="(slide, index) in slides"
+          :key="index"
+          class="slide"
+          :style="{ backgroundImage: `url(${slide.image})` }"
+        >
+          <div class="slide-content">
+            
+            <p>{{ slide.feed }}</p>
+            <p class="font-bold text-xl ">{{ slide.title }}</p>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Navigation Arrows -->
+      <button class="prev-btn" @click="prevSlide">❮</button>
+      <button class="next-btn" @click="nextSlide">❯</button>
+  
+      <!-- Pagination Dots -->
+      <div class="dots">
+        <span
+          v-for="(slide, index) in slides"
+          :key="index"
+          class="dot"
+          :class="{ active: index === currentIndex }"
+          @click="goToSlide(index)"
+        ></span>
+      </div>
+    </div>
       </center>
-      <center>
+      <!-- <center>
         <p class="font-mono text-xl font-bold text-gray-700">-Lily Rose</p>
-      </center>
+      </center> -->
     </div>
 
     <!-- Image Section -->
@@ -198,4 +277,80 @@ onMounted(() => {
         animation-timeline: view();
         animation-range: entry 0% cover 80%;
       }
+
+
+      .slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    overflow: hidden;
+    margin-top: -80px;
+  }
+  
+  /* Slider Wrapper */
+  .slider-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  /* Individual Slide */
+  .slide {
+    min-width: 100%;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    color: gray;
+    
+  }
+  
+  /* Slide Content */
+  .slide-content {
+    text-align: center;
+  }
+  
+  /* Navigation Arrows */
+  .prev-btn,
+  .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(234, 159, 84, 0.139);
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+  
+  .prev-btn {
+    left: 10px;
+  }
+  
+  .next-btn {
+    right: 10px;
+  }
+  
+  .prev-btn:hover,
+  .next-btn:hover {
+    background: rgba(237, 144, 5, 0.877);
+  }
+  
+  /* Pagination Dots */
+  .dots {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+  }
+  
+ 
+  
+  .dot.active {
+    background: white;
+  }
 </style>

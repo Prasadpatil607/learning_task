@@ -64,9 +64,9 @@ onMounted(() => {
             <input
               type="checkbox"
               id="copy"
-              class="h-4 w-4 accent-yellow-400 border-gray-300 rounded focus:ring-yellow-300"
+              class="h-4 w-4 accent-yellow-400 border-gray-300 rounded"
             />
-            <label for="copy" class="ml-2 font-serif text-sm md:text-md text-gray-700">
+            <label for="copy" class="ml-2 font-serif text-sm md:text-md text-gray-700  focus:ring-yellow-300">
               Send me a copy
             </label>
           </div>

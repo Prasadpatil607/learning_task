@@ -9,4 +9,18 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+  app: {
+    head: {
+      title: 'Restaurant',
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { hid: 'description', name: 'description', content: 'Nuxt 3 Restaurant' }
+      ],
+      link: [
+        { rel: 'icon', type: 'image/ico', href: '/icon.ico' }
+      ]
+    },
+  },
+
 })
