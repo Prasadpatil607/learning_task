@@ -1,10 +1,10 @@
 <template>
   <section
     class="w-full mt-[68px] flex flex-col md:flex-row justify-center items-center md:items-start"
-    style="background: linear-gradient(to bottom, rgba(255, 255, 0, 0.5), rgba(255, 255, 0, 0));"
+    style="background-image: url('https://themewagon.gitlab.io/restaurant/assets/img/food/Vector.png'); background-repeat: no-repeat; background-size: 35%; background-position: left;"
   >
     <!-- Rotating Image Section -->
-    <aside class="leftaside mt-[80px] md:mt-0 md:ml-10">
+    <aside class="leftaside mt-[80px] md:mt-0 lg:ml-10">
       <img
         class="image rotate-on-scroll"
         src="https://themewagon.gitlab.io/restaurant/assets/img/food/plate.png"

@@ -10,7 +10,6 @@
     </div>
     <br><br><br>
 
-    <!-- Card Section -->
     <div class="flex justify-center items-center flex-wrap">
       <div class="w-full md:w-[600px] h-auto md:h-60 rounded-md shadow-lg flex flex-col md:flex-row justify-center items-center hover:shadow-xl transition-all duration-300 p-4">
         <!-- Image Section -->
