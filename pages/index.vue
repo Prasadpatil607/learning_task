@@ -20,9 +20,11 @@
   <Feedback/>
   <Footer/> -->
   <div>
+    <!-- <Preloader></Preloader> -->
     <Navbar></Navbar>
     <Headersec></Headersec>
     <Menu></Menu>
+    <MenuItems></MenuItems>
     <br><br><br><br><br>
     <menu-list></menu-list>
     <br><br><br><br><br><br><br>
@@ -60,6 +62,8 @@
     import Errormsg from '~/component/Errormsg.vue';
     import Contact from '~/component/Contact.vue';
     import Feedback from '~/component/Feedback.vue';
+import Preloader from '~/component/Preloader.vue';
+import MenuItems from '~/component/MenuItems.vue';
 </script>
   
   
