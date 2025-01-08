@@ -126,7 +126,7 @@ onMounted(() => {
 .animate-on-scroll {
   opacity: 0;
   transform: translateY(50px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transition: opacity 0.8s ease-out 1s, transform 0.8s ease-out 1s;
 }
 
 /* Animated state */

@@ -1,10 +1,10 @@
 <template>
   <section
-    class="w-full mt-[68px] flex flex-col md:flex-row justify-center items-center md:items-start"
+    class="w-full mt-[60px] flex flex-col md:flex-row justify-center items-center md:items-start"
     style="background-image: url('https://themewagon.gitlab.io/restaurant/assets/img/food/Vector.png'); background-repeat: no-repeat; background-size: 35%; background-position: left;"
   >
     <!-- Rotating Image Section -->
-    <aside class="leftaside mt-[80px] md:mt-0 lg:ml-10">
+    <aside class="leftaside mt-[80px] md:mt-0 ml-[0px]">
       <img
         class="image rotate-on-scroll"
         src="https://themewagon.gitlab.io/restaurant/assets/img/food/plate.png"
@@ -13,7 +13,7 @@
     </aside>
 
     <!-- Text Section -->
-    <aside class="rightaside md:mt-0 mt-10 md:ml-0 text-center md:text-left">
+    <aside class="rightaside md:mt-0  md:ml-0 text-center md:text-left mb-[50px]">
       <div class="text-slide-in slide-in-bottom pt-10 md:pt-56 text-2xl md:text-4xl font-serif">
         <span>The Spectacle <strong>Before Us<br />Was Indeed</strong> Sublime.</span>
       </div>
@@ -30,12 +30,12 @@
         class="button-slide-in mt-10 flex flex-col md:flex-row md:justify-start space-y-5 md:space-y-0 md:space-x-10"
       >
         <button
-          class="bg-yellow-400 text-gray-800 py-3 px-10 rounded-md cursor-pointer hover:bg-yellow-500 font-sans"
+          class="bg-yellow-400 text-gray-800 py-2 px-10 rounded-md cursor-pointer hover:bg-yellow-500 font-sans"
         >
           <b>ORDER ONLINE</b>
         </button>
         <button
-          class="border-2 border-yellow-400 text-yellow-400 py-3 px-10 rounded-md cursor-pointer hover:bg-yellow-400 hover:text-gray-800 font-sans"
+          class="border-2 border-yellow-400 text-yellow-400 py-2 px-10 rounded-md cursor-pointer hover:bg-yellow-400 hover:text-gray-800 font-sans"
         >
           <b>OUR LOCATION</b>
         </button>
@@ -71,10 +71,12 @@ onMounted(() => {
 <style scoped>
 /* Rotating image animation */
 .rotate-on-scroll {
+
   transform: translate(-300px, -0px) rotate(-90deg); /* Start from top-left corner */
-  transition: transform 1.5s ease-out; /* Smooth animation */
+  transition: transform 1.5s ease-out 4s; /* Smooth animation */
 }
 .rotate-on-scroll.animate {
+  
   transform: translate(0, 0) rotate(0deg); /* Final position and rotation */
 }
 
@@ -82,7 +84,7 @@ onMounted(() => {
 .text-slide-in {
   opacity: 0;
   transform: translateY(50px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out 4s;
 }
 .text-slide-in.animate {
   opacity: 1;
@@ -121,6 +123,7 @@ onMounted(() => {
   }
   section {
     margin-top: -2rem;
+    background-image: none;
   }
 }
 </style>

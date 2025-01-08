@@ -43,8 +43,8 @@
       <ul
         class="nav-links flex flex-col md:flex-row lg:space-x-6 md:space-y-0 md:space-x-8"
       >
-        <li class="relative group text-gray-400 transition-colors cursor-pointer hover:text-white">
-          Home
+        <li class="relative group text-gray-400 transition-colors font-mono cursor-pointer hover:text-white">
+          Home 
           <div
             class="absolute left-0 hidden pt-2 group-hover:block"
           >
@@ -77,7 +77,7 @@
             </div>
           </div>
         </li>
-        <li class="relative group text-gray-400 transition-colors cursor-pointer hover:text-white">
+        <li class="relative group text-gray-400 transition-colors font-mono cursor-pointer hover:text-white">
           Pages
           <div
             class="absolute left-0 hidden pt-2 group-hover:block"
@@ -106,16 +106,16 @@
             </div>
           </div>
         </li>
-        <li class="text-gray-400 transition-colors cursor-pointer hover:text-white">
+        <li class="text-gray-400 transition-colors font-mono cursor-pointer hover:text-white">
           Menu
         </li>
-        <li class="text-gray-400 transition-colors cursor-pointer hover:text-white">
+        <li class="text-gray-400 transition-colors font-mono cursor-pointer hover:text-white">
           Components
         </li>
-        <li class="text-gray-400 transition-colors cursor-pointer hover:text-white">
+        <li class="text-gray-400 transition-colors font-mono cursor-pointer hover:text-white">
           Utilities
         </li>
-        <li class="text-gray-400 transition-colors cursor-pointer hover:text-white">
+        <li class="text-gray-400 transition-colors font-mono cursor-pointer hover:text-white">
           Plugins
         </li>
       </ul>
@@ -123,7 +123,8 @@
       <!-- Reservation Button -->
       <button
         id="btn"
-        class="mt-4 md:mt-0 text-yellow-400 border-2 border-yellow-400 bg-transparent px-12 py-3 rounded-md cursor-pointer hover:bg-yellow-400 hover:text-white"
+        class="mt-2 ml-8 md:mt-0 text-yellow-400 border-2 border-yellow-400 bg-transparent px-12 py-2 rounded-md cursor-pointer hover:bg-yellow-400 hover:text-white"
+        style="margin-left: 120px; margin-right: 60px;"
       >
         MAKE A RESERVATION
       </button>

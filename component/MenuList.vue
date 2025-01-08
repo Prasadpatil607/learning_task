@@ -55,10 +55,10 @@
         </div>
       </div>
       <br>
-      <div class="block1 bg-gray-50 rounded-lg shadow-md flex justify-between p-4 py-8 px-10 mx-10 animate-on-scroll" style="background-image: url('https://themewagon.gitlab.io/restaurant/assets/img/food/egg.png'),url('https://themewagon.gitlab.io/restaurant/assets/img/food/bread.png'); background-repeat: no-repeat,no-repeat; background-position: top right,bottom left; background-size: 250px 250px,400px 100px;">
+      <div class="block1 bg-gray-50 rounded-lg shadow-md flex justify-between p-4 py-8 px-10 mx-10 " style="background-image: url('https://themewagon.gitlab.io/restaurant/assets/img/food/egg.png'),url('https://themewagon.gitlab.io/restaurant/assets/img/food/bread.png'); background-repeat: no-repeat,no-repeat; background-position: top right,bottom left; background-size: 250px 250px,400px 100px;">
   
         <div v-for="(tab, index) in tabs" :key="index" v-show="currentTab === index">
-          <div class="text-sm flex justify-between items-center ml-[30px] mt-[20px] space-y-2 flex-col lg:flex-row" onclick="showPopup()">
+          <div class="text-sm flex justify-between items-center ml-[30px] mt-[20px] space-y-2 flex-col lg:flex-row animate-on-scroll" onclick="showPopup()">
             <!-- <span>
            <img class="position-absolute r-0 t-0 ml-[300px]" src="https://themewagon.gitlab.io/restaurant/assets/img/food/egg.png" alt="omlet" height="300" width="200"> 
              </span> -->

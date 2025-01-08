@@ -223,8 +223,8 @@ const currentIndex = ref(0);
 /* Initial state for animation */
 .animate-on-scroll {
   opacity: 0;
-  transform: translateX(-50px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transform: translateX(50px);
+  transition: opacity 0.8s ease-out 1s, transform 0.8s ease-out 1s;
 }
 
 /* Animated state */
@@ -261,22 +261,7 @@ const currentIndex = ref(0);
     }
   }
 
-  @keyframes appear {
-        from {
-          opacity: 0;
-          clip-path: inset(100% 100% 0 0);
-        }
-        to {
-          opacity: 1;
-          clip-path: inset(0 0 0 0);
-        }
-      }
-
-      .block1 {
-        animation: slideInLeft 1s forwards;
-        animation-timeline: view();
-        animation-range: entry 0% cover 80%;
-      }
+  
 
 
       .slider-container {

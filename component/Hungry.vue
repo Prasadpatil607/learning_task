@@ -3,7 +3,7 @@
     <!-- Image Section - Hidden on Mobile -->
     <div class="block1 slide-in-bottom h-80 w-90 md:block hidden">
       <img
-        class="mt-[-95px] animate-on-scroll"
+        class="mt-[-95px] relative animate-on-scroll"
         src="https://themewagon.gitlab.io/restaurant/assets/img/food/fried-clipart-transparent-background-7.png"
         alt="img"
         height="350"

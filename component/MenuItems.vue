@@ -5,7 +5,7 @@
           <div v-for="(item, index) in carouselItems" :key="index" class="carousel-item">
             <div class="hoverbox">
               <img :src="item.image" :alt="item.title">
-              <div class="hoverbox-content">
+              <div class="hoverbox-content font-bold">
                 <h3 v-html="item.title.replace(' ', '<br>')"></h3>
                 <p>{{ item.description }}</p>
               </div>
