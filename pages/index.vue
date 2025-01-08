@@ -20,7 +20,7 @@
   <Feedback/>
   <Footer/> -->
   <div>
-    <!-- <Preloader></Preloader> -->
+    <Preloader></Preloader>
     <Navbar></Navbar>
     <Headersec></Headersec>
     <Menu></Menu>

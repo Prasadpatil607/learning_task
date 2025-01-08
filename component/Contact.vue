@@ -22,12 +22,12 @@ onMounted(() => {
 
 <template>
   <section class="block1 h-auto w-full bg-gray-100">
-    <div class="w-full px-4 py-6 md:px-6 md:py-8 bg-white shadow-lg rounded-md animate-on-scroll">
+    <div class="w-full px-4 py-6 md:px-6 md:py-8 bg-white shadow-lg rounded-md ">
       <!-- Heading Section -->
-      <h1 class="slide-in-bottom text-2xl md:text-3xl font-medium font-serif text-center mb-4 mt-12 md:mt-[80px]">
+      <h1 class="slide-in-bottom text-2xl md:text-3xl font-medium font-serif text-center mb-4 mt-12 md:mt-[80px] animate-on-scroll">
         Feel free to drop us a line!
       </h1>
-      <p class="slide-in-bottom text-sm md:text-base text-center font-mono text-gray-600 mb-6">
+      <p class="slide-in-bottom text-sm md:text-base text-center font-mono text-gray-600 mb-6 animate-on-scroll">
         Let's talk if you have any query or suggestion. We are open to learn from you. <br>
         So don't hesitate to reach us anytime.
       </p>
@@ -97,7 +97,7 @@ onMounted(() => {
 .animate-on-scroll {
   opacity: 0;
   transform: translateY(50px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transition: opacity 0.8s ease-out 1s, transform 0.8s ease-out 1s;
 }
 
 /* Animated state */
@@ -106,22 +106,6 @@ onMounted(() => {
   transform: translateY(0);
 }
 
-  .slide-in-bottom {
-  transform: translateY(50px);
-  opacity: 0;
-  animation: slideInBottom 1s forwards;
-}
-
-@keyframes slideInBottom {
-  0% {
-    transform: translateY(50px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
 @keyframes zoomIn {
       0% {
         transform: scale(0.5); /* Start smaller */
@@ -139,20 +123,5 @@ onMounted(() => {
       animation-fill-mode: both;   
     }
 
-    @keyframes appear {
-        from {
-          opacity: 0;
-          clip-path: inset(100% 100% 0 0);
-        }
-        to {
-          opacity: 1;
-          clip-path: inset(0 0 0 0);
-        }
-      }
-
-      .block1 {
-        animation: slideInBottom 1s forwards;
-        animation-timeline: view();
-        animation-range: entry 0% cover 60%;
-      }
+    
 </style>
