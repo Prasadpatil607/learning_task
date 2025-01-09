@@ -41,7 +41,7 @@ onMounted(() => {
               type="text"
               id="name"
               class="w-full px-4 py-2 font-mono border border-gray-300 rounded-md focus:ring-2 focus:ring-yellow-300 focus:outline-none"
-              placeholder="Your Name"
+              placeholder="Your Name" required
             />
           </div>
           <div class="mb-4">
@@ -49,7 +49,7 @@ onMounted(() => {
               type="text"
               id="subject"
               class="w-full px-4 py-2 font-mono border border-gray-300 rounded-md focus:ring-2 focus:ring-yellow-300 focus:outline-none"
-              placeholder="Subject"
+              placeholder="Subject" required
             />
           </div>
           <div class="mb-4">
@@ -57,7 +57,7 @@ onMounted(() => {
               type="email"
               id="email"
               class="w-full px-4 py-2 font-mono border border-gray-300 rounded-md focus:ring-2 focus:ring-yellow-300 focus:outline-none"
-              placeholder="Email Address"
+              placeholder="Email Address" required
             />
           </div>
           <div class="mb-4 flex items-center">
@@ -78,7 +78,7 @@ onMounted(() => {
             <textarea
               id="message"
               class="w-full px-4 py-2 font-mono border border-gray-300 rounded-md focus:ring-2 focus:ring-yellow-300 focus:outline-none"
-              placeholder="Type your message here"
+              placeholder="Type your message here" required
               rows="4"
             ></textarea>
           </div>

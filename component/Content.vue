@@ -65,7 +65,7 @@ onMounted(() => {
         <p class="font-bold text-gray-700 font-sans text-md pt-[50px] pl-4">Telephone support:</p>
         <p class="font-sans text-gray-600 text-md pl-4">Monday to Saturday from <br>9:00 am to 9:00 pm</p>
         <br>
-        <button class="bg-red-400 text-gray-800 py-2 px-10 rounded-md cursor-pointer font-bold hover:bg-red-500 font-sans text-opacity-70 ml-4">
+        <button class="bg-red-400 text-white py-2 px-10 rounded-md cursor-pointer font-bold hover:bg-red-500 font-sans text-opacity-70 ml-4">
           MAKE A RESERVATION
         </button>
       </div>
